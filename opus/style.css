@@ -221,8 +221,6 @@ html, body {
 }
 .n.on { opacity: 1; }
 .n.on.match {
-  position: relative;
-  z-index: 1;
   place-self: center;
   width: calc(var(--cell) * 0.32);
   height: calc(var(--cell) * 0.32);
@@ -232,36 +230,6 @@ html, body {
   border-radius: 3.5px;
 }
 .n.hidden-pending { opacity: 0 !important; }
-.slot-box { display: none; }
-@media (hover: hover) and (pointer: fine) {
-  /* In the selected cell only slots a click would toggle get the pointer and the box. */
-  .cell.selected { cursor: default; }
-  .cell.selected.slot-live { cursor: pointer; }
-  .slot-box.on {
-    display: block;
-    position: absolute;
-    /* One third of the cell on each axis, inset 2px so the box fills the slot. */
-    left: calc(100% * var(--sc) / 3 + 2px);
-    top: calc(100% * var(--sr) / 3 + 2px);
-    width: calc(100% / 3 - 4px);
-    height: calc(100% / 3 - 4px);
-    box-sizing: border-box;
-    background: #ffffff;
-    border: 1px solid #8fa8dc;
-    border-radius: 4px;
-    pointer-events: none;
-    z-index: 0;
-    transition: none;
-  }
-  /* Hidden or empty restorable slot: same struck-through ghost as a keypad remove preview. */
-  .n.slot-ghost {
-    position: relative;
-    z-index: 1;
-    opacity: 0.55;
-    color: var(--conflict);
-    text-decoration: line-through;
-  }
-}
 .board.shift-aim, .board.shift-aim .cell { cursor: crosshair; }
 /* Shift-hover snap: bold ink with an ink outline; on a yellow chip the chip keeps its fill. */
 .n.on.aim {
