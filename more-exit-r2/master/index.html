@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<script>
+(() => {
+ const storage = window.localStorage;
+ const prefix = "preview-more-exit-r2-master:";
+ for (const name of ["getItem", "setItem", "removeItem"]) {
+  const original = Storage.prototype[name];
+  Storage.prototype[name] = function(key, ...args) {
+   return original.call(this, this === storage ? prefix + String(key) : key, ...args);
+  };
+ }
+ localStorage.setItem("sudoku-keypad-coach", "1");
+ window.previewRevision = "27f07c4ea8c6cf981f8ba99a5d9fbbeb55901ab7";
+})();
+</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/sudoku-preview/more-exit-r2/master/favicon/I7-16.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="/sudoku-preview/more-exit-r2/master/favicon/I7-16.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/sudoku-preview/more-exit-r2/master/favicon/I7-32.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/sudoku-preview/resume-close/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f5f4f0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Sudoku" />
+    <!-- Let iOS paint the status bar and lay out the page below it. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <script type="module" crossorigin src="/sudoku-preview/more-exit-r2/master/assets/index-Bk9M8skl.js"></script>
+    <link rel="stylesheet" crossorigin href="/sudoku-preview/more-exit-r2/master/assets/index-qAINi2Sh.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
